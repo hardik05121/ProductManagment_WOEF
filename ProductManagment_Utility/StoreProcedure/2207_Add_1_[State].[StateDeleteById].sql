@@ -1,0 +1,17 @@
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create PROCEDURE [dbo].[StateDeleteById]
+    @Id int
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+  DELETE States
+	WHERE Id= @Id
+
+END

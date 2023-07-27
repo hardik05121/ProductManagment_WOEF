@@ -1,0 +1,17 @@
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[ExpenseCategoryDeleteById]
+    @Id int
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+  DELETE ExpenseCategories
+	WHERE Id= @Id
+
+END

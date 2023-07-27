@@ -1,0 +1,17 @@
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[WarehouseDeleteById]
+    @Id int
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+  DELETE Warehouses
+	WHERE Id= @Id
+
+END

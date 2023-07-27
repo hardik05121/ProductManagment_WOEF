@@ -1,0 +1,16 @@
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[InventoryById]
+    @Id int
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+   	SELECT *
+	FROM Inventorys
+	WHERE Id=@Id
+END

@@ -1,0 +1,17 @@
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[InquiryById]
+    @Id int
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+   	SELECT *
+	FROM Inquiries
+	WHERE Id=@Id
+END

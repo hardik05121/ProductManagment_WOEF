@@ -1,0 +1,17 @@
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[CompanyById]
+    @Id int
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+   	SELECT *
+	FROM companies
+	WHERE Id=@Id
+END

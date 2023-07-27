@@ -1,0 +1,17 @@
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[CountryById]
+    @Id int
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+   	SELECT *
+	FROM Countries
+	WHERE Id=@Id
+END

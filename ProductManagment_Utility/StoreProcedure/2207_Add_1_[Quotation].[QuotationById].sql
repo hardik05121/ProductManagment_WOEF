@@ -1,0 +1,17 @@
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[QuotationById]
+    @Id int
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+   	SELECT *
+	FROM Quotations
+	WHERE Id=@Id
+END

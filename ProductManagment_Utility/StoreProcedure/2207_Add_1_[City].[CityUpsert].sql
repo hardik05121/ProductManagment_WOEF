@@ -1,0 +1,6 @@
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[CityUpsert]    @Id int,	@CityName nvarchar(50),	@StateId int,	@CountryId int,	@IsActive bitASBEGIN	SET NOCOUNT ON; IF @Id = 0    BEGIN         -- Check if the CityName already exists        IF NOT EXISTS (SELECT * FROM Cities WHERE CityName = @CityName)        BEGIN            INSERT INTO Cities(CityName,StateId,CountryId,IsActive)            VALUES(@CityName,@StateId,@CountryId,@IsActive)        END        ELSE        BEGIN            -- Handle the case when the BrandName already exists            RAISERROR('City with the same name already exists.', 16, 1);        END    END    ELSE    BEGIN        -- Check if the BrandName already exists for a different brand (when performing an update)        IF NOT EXISTS (SELECT * FROM Cities WHERE CityName = @CityName AND Id <> @Id)        BEGIN            UPDATE Cities            SET                CityName = @CityName,				StateId = @StateId,                CountryId = @CountryId,				IsActive = @IsActive            WHERE Id = @Id        END        ELSE        BEGIN            -- Handle the case when the BrandName already exists for a different brand            RAISERROR('City with the same name already exists for a different State.', 16, 1);        END    ENDEND
